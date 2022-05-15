@@ -21,7 +21,7 @@ runs:
         sudo ./setup.sh
         rm -rf .git
         git init
-        git add *
+        sudo git add *
         git commit -m "commit"
         git remote add origin git@github.com:${{ inputs.owner }}/${{ inputs.repo }}.git
         git push -u -f origin master
