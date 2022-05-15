@@ -19,9 +19,10 @@ runs:
         cd project
         chmod +x setup.sh
         sudo ./setup.sh
+        sudo chown runner ./ -R
         rm -rf .git
         git init
-        sudo git add *
+        git add *
         git commit -m "commit"
         git remote add origin git@github.com:${{ inputs.owner }}/${{ inputs.repo }}.git
         git push -u -f origin master
