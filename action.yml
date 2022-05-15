@@ -10,17 +10,17 @@ runs:
   using: "composite"
   steps:
     - run: |
-        mkdir -p ~/.ssh/
-        echo "${{ inputs.ssh_private_key }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        git config --global user.email "action@github.com"
-        git config --global user.name "action"
-        git clone git@github.com:${{ inputs.owner }}/${{ inputs.repo }}.git project
-        cd project
-        chmod +x setup.sh
+        sudo mkdir -p ~/.ssh/
+        sudo echo "${{ inputs.ssh_private_key }}" > ~/.ssh/id_rsa
+        sudo chmod 600 ~/.ssh/id_rsa
+        sudo git config --global user.email "action@github.com"
+        sudo git config --global user.name "action"
+        sudo git clone git@github.com:${{ inputs.owner }}/${{ inputs.repo }}.git project
+        sudo cd project
+        sudo chmod +x setup.sh
+        sudo ./setup.sh
       shell: bash
       
-#     ./setup.sh
 #     rm -rf .git
 #     git init
 #     git add *
